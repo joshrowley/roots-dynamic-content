@@ -61,6 +61,12 @@ class DynamicContent
       # pull the front matter, remove it from the content
       br = "\\#{os.EOL}" # cross-platform newline
       regex = new RegExp(///^---\s*#{br}([\s\S]*?)#{br}?---\s*#{br}?///)
+      console.log 'CTX'
+      console.log ctx
+      console.log(JSON.stringify(ctx))
+      console.log 'CTX CONTEXT'
+      console.log ctx.content
+      console.log(JSON.stringify(ctx.content))
       front_matter_str = ctx.content.match(regex)
       front_matter = yaml.safeLoad(front_matter_str[1])
       ctx.content = ctx.content.replace(front_matter_str[0], '')
